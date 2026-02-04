@@ -1,0 +1,1299 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Phân Tích Chuyên Sâu: Doanh Thu Sản Phẩm Kem 2025</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=Poppins:wght@600;700;800&display=swap"
+        rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #6366f1;
+            --primary-dark: #4f46e5;
+            --secondary: #8b5cf6;
+            --accent: #ec4899;
+            --success: #10b981;
+            --warning: #f59e0b;
+            --danger: #ef4444;
+            --dark: #1e293b;
+            --light: #f8fafc;
+            --gray: #64748b;
+            --border: #e2e8f0;
+
+            --gradient-1: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --gradient-2: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            --gradient-3: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            --gradient-4: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+            --gradient-5: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.6;
+            color: var(--dark);
+            background: linear-gradient(to bottom, #f8fafc 0%, #e0e7ff 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        .hero {
+            background: var(--gradient-1);
+            color: white;
+            padding: 80px 20px 60px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(102, 110, 241, 0.3);
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><defs><pattern id="grid" width="100" height="100" patternUnits="userSpaceOnUse"><path d="M 100 0 L 0 0 0 100" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="1"/></pattern></defs><rect width="100%" height="100%" fill="url(%23grid)"/></svg>');
+            opacity: 0.3;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero h1 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+            text-shadow: 2px 4px 8px rgba(0, 0, 0, 0.2);
+            animation: fadeInDown 0.8s ease-out;
+        }
+
+        .hero .subtitle {
+            font-size: 1.3rem;
+            opacity: 0.95;
+            font-weight: 400;
+            animation: fadeInUp 0.8s ease-out 0.2s both;
+        }
+
+        .meta-info {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 25px;
+            margin-top: 40px;
+            display: inline-block;
+            animation: fadeInUp 0.8s ease-out 0.4s both;
+        }
+
+        /* Stats Cards */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin: -40px 0 60px;
+            position: relative;
+            z-index: 10;
+        }
+
+        .stat-card {
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            border: 1px solid var(--border);
+            animation: fadeInUp 0.6s ease-out both;
+        }
+
+        .stat-card:nth-child(1) {
+            animation-delay: 0.1s;
+        }
+
+        .stat-card:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+
+        .stat-card:nth-child(3) {
+            animation-delay: 0.3s;
+        }
+
+        .stat-card:nth-child(4) {
+            animation-delay: 0.4s;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .stat-card .icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+
+        .stat-card.revenue .icon {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+
+        .stat-card.sales .icon {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+        }
+
+        .stat-card.profit .icon {
+            background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+        }
+
+        .stat-card.margin .icon {
+            background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+        }
+
+        .stat-card .label {
+            color: var(--gray);
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .stat-card .value {
+            font-size: 2.2rem;
+            font-weight: 800;
+            color: var(--dark);
+            font-family: 'Poppins', sans-serif;
+        }
+
+        /* Content Section */
+        .content {
+            background: white;
+            border-radius: 30px;
+            padding: 60px;
+            margin: 40px 0;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+        }
+
+        .section {
+            margin-bottom: 60px;
+        }
+
+        .section:last-child {
+            margin-bottom: 0;
+        }
+
+        h2 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 2.2rem;
+            font-weight: 700;
+            margin-bottom: 30px;
+            color: var(--dark);
+            position: relative;
+            padding-bottom: 15px;
+        }
+
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 80px;
+            height: 4px;
+            background: var(--gradient-1);
+            border-radius: 2px;
+        }
+
+        h3 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.6rem;
+            font-weight: 700;
+            margin: 40px 0 20px;
+            color: var(--dark);
+        }
+
+        h4 {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin: 30px 0 15px;
+            color: var(--primary-dark);
+        }
+
+        p {
+            margin-bottom: 15px;
+            color: #475569;
+            font-size: 1.05rem;
+        }
+
+        /* Tables */
+        .table-wrapper {
+            overflow-x: auto;
+            margin: 30px 0;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+        }
+
+        thead {
+            background: var(--gradient-1);
+            color: white;
+        }
+
+        th {
+            padding: 18px 15px;
+            text-align: left;
+            font-weight: 700;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            letter-spacing: 0.5px;
+        }
+
+        td {
+            padding: 15px;
+            border-bottom: 1px solid var(--border);
+            color: #475569;
+        }
+
+        tbody tr {
+            transition: all 0.2s ease;
+        }
+
+        tbody tr:hover {
+            background: #f8fafc;
+            transform: scale(1.01);
+        }
+
+        tbody tr:last-child td {
+            border-bottom: none;
+        }
+
+        /* Badges */
+        .badge {
+            display: inline-block;
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin: 3px;
+        }
+
+        .badge.rank-1 {
+            background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%);
+            color: white;
+        }
+
+        .badge.rank-2 {
+            background: linear-gradient(135deg, #94a3b8 0%, #64748b 100%);
+            color: white;
+        }
+
+        .badge.rank-3 {
+            background: linear-gradient(135deg, #fb923c 0%, #f97316 100%);
+            color: white;
+        }
+
+        .badge.rank-4 {
+            background: linear-gradient(135deg, #a78bfa 0%, #8b5cf6 100%);
+            color: white;
+        }
+
+        /* Supplier Cards */
+        .supplier-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+
+        .supplier-card {
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+            border: 2px solid transparent;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .supplier-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 6px;
+            background: var(--gradient-1);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.3s ease;
+        }
+
+        .supplier-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .supplier-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
+            border-color: var(--primary);
+        }
+
+        .supplier-card.leader::before {
+            background: var(--gradient-1);
+        }
+
+        .supplier-card.challenger::before {
+            background: var(--gradient-2);
+        }
+
+        .supplier-card.follower::before {
+            background: var(--gradient-5);
+        }
+
+        .supplier-card.niche::before {
+            background: var(--gradient-4);
+        }
+
+        .supplier-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid var(--border);
+        }
+
+        .supplier-name {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--dark);
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .supplier-metric {
+            margin: 15px 0;
+        }
+
+        .metric-label {
+            font-size: 0.85rem;
+            color: var(--gray);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            font-weight: 600;
+        }
+
+        .metric-value {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary-dark);
+            font-family: 'Poppins', sans-serif;
+        }
+
+        /* Lists */
+        .insight-list {
+            list-style: none;
+            margin: 25px 0;
+        }
+
+        .insight-list li {
+            padding: 15px 15px 15px 50px;
+            margin: 12px 0;
+            background: #f8fafc;
+            border-radius: 12px;
+            position: relative;
+            border-left: 4px solid var(--primary);
+            transition: all 0.2s ease;
+        }
+
+        .insight-list li:hover {
+            background: #eff6ff;
+            transform: translateX(5px);
+        }
+
+        .insight-list li::before {
+            position: absolute;
+            left: 15px;
+            font-size: 1.3rem;
+        }
+
+        .insight-list li.check::before {
+            content: '✅';
+        }
+
+        .insight-list li.warning::before {
+            content: '⚠️';
+        }
+
+        .insight-list li.target::before {
+            content: '🎯';
+        }
+
+        .insight-list li.rocket::before {
+            content: '🚀';
+        }
+
+        .insight-list li.tool::before {
+            content: '🔧';
+        }
+
+        .insight-list li.bulb::before {
+            content: '💡';
+        }
+
+        .insight-list li.zap::before {
+            content: '⚡';
+        }
+
+        .insight-list li.trophy::before {
+            content: '🏆';
+        }
+
+        .insight-list li.chart::before {
+            content: '📊';
+        }
+
+        .insight-list li.gem::before {
+            content: '💎';
+        }
+
+        /* Alert Boxes */
+        .alert {
+            padding: 25px;
+            border-radius: 15px;
+            margin: 25px 0;
+            border-left: 5px solid;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+        }
+
+        .alert.critical {
+            background: linear-gradient(135deg, #fee2e2 0%, #fecaca 100%);
+            border-color: var(--danger);
+            color: #7f1d1d;
+        }
+
+        .alert.opportunity {
+            background: linear-gradient(135deg, #dbeafe 0%, #bfdbfe 100%);
+            border-color: var(--primary);
+            color: #1e3a8a;
+        }
+
+        .alert.success {
+            background: linear-gradient(135deg, #d1fae5 0%, #a7f3d0 100%);
+            border-color: var(--success);
+            color: #14532d;
+        }
+
+        .alert h4 {
+            margin-top: 0;
+            font-size: 1.2rem;
+        }
+
+        /* Progress Bars */
+        .progress-bar {
+            height: 30px;
+            background: #e2e8f0;
+            border-radius: 15px;
+            overflow: hidden;
+            margin: 15px 0;
+            box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: var(--gradient-1);
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            padding-right: 15px;
+            color: white;
+            font-weight: 700;
+            font-size: 0.85rem;
+            transition: width 1s ease-out;
+        }
+
+        /* Divider */
+        .divider {
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--primary), transparent);
+            margin: 50px 0;
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 40px 20px;
+            color: var(--gray);
+            margin-top: 60px;
+        }
+
+        /* Animations */
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+
+            .hero .subtitle {
+                font-size: 1rem;
+            }
+
+            .content {
+                padding: 30px 20px;
+            }
+
+            h2 {
+                font-size: 1.8rem;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .stat-card .value {
+                font-size: 1.8rem;
+            }
+        }
+
+        /* Scroll Animation */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Star Rating */
+        .star-rating {
+            color: #fbbf24;
+            font-size: 1.2rem;
+            letter-spacing: 2px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Hero Section -->
+    <div class="hero">
+        <div class="hero-content">
+            <h1>📊 PHÂN TÍCH CHUYÊN SÂU</h1>
+            <p class="subtitle">Doanh Số & Doanh Thu Sản Phẩm Kem - Sheet "Ranking Kem2"</p>
+            <div class="meta-info">
+                <strong>Kỳ phân tích:</strong> Tháng 1-12/2025 | <strong>Ngày tạo:</strong> 04/02/2026
+            </div>
+        </div>
+    </div>
+
+    <!-- Stats Overview -->
+    <div class="container">
+        <div class="stats-grid">
+            <div class="stat-card revenue">
+                <div class="icon">💰</div>
+                <div class="label">Tổng Doanh Thu</div>
+                <div class="value">133.4M đ</div>
+            </div>
+            <div class="stat-card sales">
+                <div class="icon">📦</div>
+                <div class="label">Tổng Số Bán</div>
+                <div class="value">15,870</div>
+            </div>
+            <div class="stat-card profit">
+                <div class="icon">💎</div>
+                <div class="label">Tổng Lợi Nhuận</div>
+                <div class="value">27.8M đ</div>
+            </div>
+            <div class="stat-card margin">
+                <div class="icon">📈</div>
+                <div class="label">Margin TB</div>
+                <div class="value">20.8%</div>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="content">
+            <!-- Supplier Comparison -->
+            <section class="section">
+                <h2>🏆 Phân Tích Nhà Cung Cấp</h2>
+
+                <div class="table-wrapper">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Xếp Hạng</th>
+                                <th>NCC</th>
+                                <th>Doanh Thu (đ)</th>
+                                <th>% Thị Phần</th>
+                                <th>Số Bán</th>
+                                <th>Margin (%)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><span class="badge rank-1">🥇 #1</span></td>
+                                <td><strong>Ái Tuyết (AICE)</strong></td>
+                                <td>56,009,761</td>
+                                <td><strong>42.0%</strong></td>
+                                <td>8,449</td>
+                                <td>21.3%</td>
+                            </tr>
+                            <tr>
+                                <td><span class="badge rank-2">🥈 #2</span></td>
+                                <td><strong>KIDO FOODS</strong></td>
+                                <td>46,918,113</td>
+                                <td><strong>35.2%</strong></td>
+                                <td>5,015</td>
+                                <td>21.4%</td>
+                            </tr>
+                            <tr>
+                                <td><span class="badge rank-3">🥉 #3</span></td>
+                                <td><strong>An Thảo Nhiên</strong></td>
+                                <td>29,135,456</td>
+                                <td><strong>21.8%</strong></td>
+                                <td>2,066</td>
+                                <td>18.6%</td>
+                            </tr>
+                            <tr>
+                                <td><span class="badge rank-4">🏅 #4</span></td>
+                                <td><strong>VINAMILK</strong></td>
+                                <td>1,361,333</td>
+                                <td><strong>1.0%</strong></td>
+                                <td>340</td>
+                                <td>26.0%</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <h3>Thị phần theo doanh thu</h3>
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 42%">AICE - 42%</div>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 35.2%; background: var(--gradient-2);">KIDO - 35.2%</div>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 21.8%; background: var(--gradient-5);">An Thảo Nhiên -
+                        21.8%</div>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 10%; background: var(--gradient-4);">VINAMILK - 1.0%</div>
+                </div>
+            </section>
+
+            <div class="divider"></div>
+
+            <!-- Detailed Supplier Analysis -->
+            <section class="section">
+                <h2>🔍 Phân Tích Chi Tiết Từng NCC</h2>
+
+                <!-- AICE -->
+                <div class="supplier-card leader">
+                    <div class="supplier-header">
+                        <div>
+                            <div class="supplier-name">🥇 ÁI TUYẾT (AICE)</div>
+                            <span class="badge rank-1">Người Dẫn Đầu Thị Trường</span>
+                        </div>
+                    </div>
+
+                    <div class="supplier-metric">
+                        <div class="metric-label">Doanh Thu</div>
+                        <div class="metric-value">56.0M đ</div>
+                    </div>
+
+                    <div class="supplier-metric">
+                        <div class="metric-label">Số Bán</div>
+                        <div class="metric-value">8,449 đơn vị</div>
+                    </div>
+
+                    <h4>Điểm Mạnh:</h4>
+                    <ul class="insight-list">
+                        <li class="check">Dẫn đầu với 42% doanh thu và 53.2% số lượng bán</li>
+                        <li class="check">Chiến lược Mass Market hiệu quả - giá bình quân ~6,600đ</li>
+                        <li class="check">Danh mục đa dạng ~15 SKUs với sản phẩm trendy (Mochi, Boba)</li>
+                        <li class="check">Có 2/3 sản phẩm bán chạy nhất toàn thị trường</li>
+                    </ul>
+
+                    <h4>Sản Phẩm Nổi Bật:</h4>
+                    <ul class="insight-list">
+                        <li class="trophy">Kem Vani lớp phủ Sôcôla giòn - 34M đ (7,118 đơn vị)</li>
+                        <li class="trophy">AICE Kem Mochi Vani - 24M đ (5,591 đơn vị)</li>
+                        <li class="trophy">AICE Kem Trà sữa Trân châu - Trend boba tea</li>
+                    </ul>
+
+                    <h4>Cần Cải Thiện:</h4>
+                    <ul class="insight-list">
+                        <li class="warning">Margin thấp hơn VINAMILK và KIDO</li>
+                        <li class="warning">Phụ thuộc nhiều vào 2-3 sản phẩm chủ lực</li>
+                    </ul>
+                </div>
+
+                <!-- KIDO -->
+                <div class="supplier-card challenger">
+                    <div class="supplier-header">
+                        <div>
+                            <div class="supplier-name">🥈 KIDO FOODS</div>
+                            <span class="badge rank-2">Người Theo Sát - Chiến Lược Premium</span>
+                        </div>
+                    </div>
+
+                    <div class="supplier-metric">
+                        <div class="metric-label">Doanh Thu</div>
+                        <div class="metric-value">46.9M đ</div>
+                    </div>
+
+                    <div class="supplier-metric">
+                        <div class="metric-label">Số Bán</div>
+                        <div class="metric-value">5,015 đơn vị</div>
+                    </div>
+
+                    <h4>Điểm Mạnh:</h4>
+                    <ul class="insight-list">
+                        <li class="check">Vị trí vững chắc với 35.2% thị phần</li>
+                        <li class="check">Margin cao (21.4%), gần ngang AICE</li>
+                        <li class="check">Đa dạng thương hiệu: Merino (health) & Celano (premium)</li>
+                        <li class="check">Danh mục phong phú ~14 SKUs</li>
+                    </ul>
+
+                    <h4>Sản Phẩm Nổi Bật:</h4>
+                    <ul class="insight-list">
+                        <li class="trophy"><strong>Merino:</strong> Kem Sữa chua Phô mai - 18.8M đ (TOP 3 toàn thị
+                            trường)</li>
+                        <li class="trophy"><strong>Merino:</strong> Kem Sữa chua Việt Quất - Health segment mạnh</li>
+                        <li class="trophy"><strong>Celano:</strong> Kem Thạch dừa - Premium positioning</li>
+                    </ul>
+
+                    <h4>Cần Cải Thiện:</h4>
+                    <ul class="insight-list">
+                        <li class="warning">Volume thấp hơn AICE đáng kể (5,014 vs 8,449)</li>
+                        <li class="warning">Cần đẩy mạnh marketing cho Celano</li>
+                        <li class="warning">Phụ thuộc quá nhiều vào Merino Phô mai (40% doanh thu)</li>
+                    </ul>
+                </div>
+
+                <!-- An Thảo Nhiên -->
+                <div class="alert critical">
+                    <h3>⚠️ AN THẢO NHIÊN - Cần Hành Động Khẩn Cấp</h3>
+                    <div class="supplier-metric">
+                        <div class="metric-label">Doanh Thu</div>
+                        <div class="metric-value" style="color: var(--danger);">29.1M đ (21.8%)</div>
+                    </div>
+                    <div class="supplier-metric">
+                        <div class="metric-label">Margin - THẤP NHẤT</div>
+                        <div class="metric-value" style="color: var(--danger);">18.6%</div>
+                    </div>
+
+                    <h4>Vấn Đề Nghiêm Trọng:</h4>
+                    <ul class="insight-list">
+                        <li class="warning">Margin thấp nhất (18.6%) - vấn đề quản lý chi phí</li>
+                        <li class="warning">Giá cao (~14,100đ) nhưng volume thấp - chưa tạo perceived value</li>
+                        <li class="warning">Thiếu sản phẩm hit - không có trong top 5</li>
+                        <li class="warning">Kém cạnh tranh so với AICE và KIDO</li>
+                    </ul>
+
+                    <h4>Khuyến Nghị Khẩn:</h4>
+                    <ul class="insight-list">
+                        <li class="target">Review lại chiến lược pricing ngay lập tức</li>
+                        <li class="target">Tối ưu hóa cost structure để cải thiện margin</li>
+                        <li class="target">Phát triển 2-3 hero products với marketing mạnh</li>
+                        <li class="target">Khai thác thế mạnh "local brand" với storytelling</li>
+                    </ul>
+                </div>
+
+                <!-- VINAMILK -->
+                <div class="supplier-card niche">
+                    <div class="supplier-header">
+                        <div>
+                            <div class="supplier-name">🏅 VINAMILK</div>
+                            <span class="badge rank-4">Premium Niche Player</span>
+                        </div>
+                    </div>
+
+                    <div class="supplier-metric">
+                        <div class="metric-label">Margin - CAO NHẤT</div>
+                        <div class="metric-value" style="color: var(--success);">26.0%</div>
+                    </div>
+
+                    <h4>Điểm Mạnh:</h4>
+                    <ul class="insight-list">
+                        <li class="check">Margin cao nhất (26%) - chiến lược premium thành công</li>
+                        <li class="check">Brand equity mạnh - VINAMILK là thương hiệu quốc gia</li>
+                        <li class="check">Quality positioning rõ ràng</li>
+                    </ul>
+
+                    <h4>Cơ Hội Tăng Trưởng:</h4>
+                    <ul class="insight-list">
+                        <li class="rocket">Mở rộng danh mục sản phẩm để tăng thị phần</li>
+                        <li class="rocket">Khai thác brand equity mạnh mẽ hơn</li>
+                        <li class="rocket">Có thể tăng volume mà vẫn giữ margin cao</li>
+                    </ul>
+                </div>
+            </section>
+
+            <div class="divider"></div>
+
+            <!-- Top Products -->
+            <section class="section">
+                <h2>⭐ TOP 10 Sản Phẩm Bán Chạy Nhất</h2>
+
+                <div class="table-wrapper">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Sản Phẩm</th>
+                                <th>NCC</th>
+                                <th>Doanh Thu</th>
+                                <th>Số Bán</th>
+                                <th>% Thị Phần</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><span class="badge rank-1">🏆 1</span></td>
+                                <td>Kem Vani lớp phủ Sôcôla giòn</td>
+                                <td>AICE</td>
+                                <td>~34M đ</td>
+                                <td>7,118</td>
+                                <td><strong>25.5%</strong></td>
+                            </tr>
+                            <tr>
+                                <td><span class="badge rank-2">🥈 2</span></td>
+                                <td>AICE Kem Mochi Vani Gạo nếp (30g)</td>
+                                <td>AICE</td>
+                                <td>~24M đ</td>
+                                <td>5,591</td>
+                                <td><strong>18.0%</strong></td>
+                            </tr>
+                            <tr>
+                                <td><span class="badge rank-3">🥉 3</span></td>
+                                <td>Kido Kem Merino Sữa chua Phô mai (50g)</td>
+                                <td>KIDO</td>
+                                <td>~18.8M đ</td>
+                                <td>5,440</td>
+                                <td><strong>14.1%</strong></td>
+                            </tr>
+                            <tr>
+                                <td>4</td>
+                                <td>AICE Kem Trà sữa Trân châu (60g)</td>
+                                <td>AICE</td>
+                                <td>~10M+ đ</td>
+                                <td>-</td>
+                                <td>7.5%</td>
+                            </tr>
+                            <tr>
+                                <td>5</td>
+                                <td>Celano Kem Thạch dừa (80g)</td>
+                                <td>KIDO</td>
+                                <td>~8M+ đ</td>
+                                <td>-</td>
+                                <td>6.0%</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="alert success">
+                    <h4>📊 Key Insights:</h4>
+                    <ul class="insight-list">
+                        <li class="check">Top 3 chiếm 57.6% tổng doanh thu - thị trường tập trung cao</li>
+                        <li class="check">AICE dominates với 2/3 vị trí đầu</li>
+                        <li class="check">Sản phẩm trendy (Mochi, Boba) có performance vượt trội</li>
+                        <li class="check">Yogurt segment (Merino) có chỗ đứng vững chắc</li>
+                    </ul>
+                </div>
+            </section>
+
+            <div class="divider"></div>
+
+            <!-- Product Categories -->
+            <section class="section">
+                <h2>📦 Phân Tích Theo Nhóm Sản Phẩm</h2>
+
+                <h3>1. Nhóm Mochi/Chewy Ice Cream ⬆️</h3>
+                <div class="alert opportunity">
+                    <p><strong>Đại diện:</strong> AICE Mochi series</p>
+                    <p><strong>Doanh thu:</strong> ~25-30M đ (18-20% thị trường)</p>
+                    <p><strong>Trend:</strong> <span style="color: var(--success); font-weight: bold;">⬆️ TĂNG
+                            MẠNH</span></p>
+
+                    <h4>Phân Tích:</h4>
+                    <ul class="insight-list">
+                        <li class="check">Targeting giới trẻ (Gen Z, Millennials)</li>
+                        <li class="check">Social media friendly (instagrammable)</li>
+                        <li class="check">Unique texture tạo điểm khác biệt</li>
+                    </ul>
+
+                    <h4>Khuyến Nghị:</h4>
+                    <ul class="insight-list">
+                        <li class="target">KIDO và An Thảo Nhiên nên phát triển competing products</li>
+                        <li class="target">Đây là growth segment, cần đầu tư marketing và R&D</li>
+                    </ul>
+                </div>
+
+                <h3>2. Nhóm Boba/Milk Tea Ice Cream ⬆️</h3>
+                <div class="alert opportunity">
+                    <p><strong>Đại diện:</strong> AICE Trà sữa Trân châu</p>
+                    <p><strong>Doanh thu:</strong> ~10M+ đ</p>
+                    <p><strong>Trend:</strong> <span style="color: var(--success); font-weight: bold;">⬆️ RIDING BOBA
+                            TEA CRAZE</span></p>
+
+                    <ul class="insight-list">
+                        <li class="rocket">Cross-appeal: ice cream + bubble tea fans</li>
+                        <li class="rocket">Novelty factor cao</li>
+                        <li class="rocket">Cơ hội phát triển variants (trà xanh, socola)</li>
+                    </ul>
+                </div>
+
+                <h3>3. Nhóm Yogurt/Healthy Ice Cream ⬆️</h3>
+                <p><strong>Đại diện:</strong> Merino Sữa chua series (KIDO)</p>
+                <p><strong>Doanh thu:</strong> ~20M+ đ (15% thị trường)</p>
+
+                <ul class="insight-list">
+                    <li class="check">Health-conscious positioning rõ ràng</li>
+                    <li class="check">Appeal cho phụ huynh (mua cho con)</li>
+                    <li class="check">Functional benefit (probiotics)</li>
+                    <li class="target">Đẩy mạnh marketing về health benefits</li>
+                </ul>
+
+                <h3>4. Nhóm Premium/Artisan Ice Cream ➡️</h3>
+                <p><strong>Đại diện:</strong> Celano series (KIDO), VINAMILK</p>
+                <p><strong>Doanh thu:</strong> ~10-15M đ (Volume thấp, margin cao 25%+)</p>
+
+                <ul class="insight-list">
+                    <li class="gem">Margin cao nhất</li>
+                    <li class="gem">Brand differentiation</li>
+                    <li class="target">Focus vào high-income demographics</li>
+                </ul>
+            </section>
+
+            <div class="divider"></div>
+
+            <!-- Strategic Recommendations -->
+            <section class="section">
+                <h2>💡 Khuyến Nghị Chiến Lược</h2>
+
+                <h3>Strategy Canvas - So sánh 4 NCC</h3>
+                <div class="table-wrapper">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Yếu Tố Cạnh Tranh</th>
+                                <th>AICE</th>
+                                <th>KIDO</th>
+                                <th>An Thảo Nhiên</th>
+                                <th>VINAMILK</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Giá cả cạnh tranh</strong></td>
+                                <td><span class="star-rating">⭐⭐⭐⭐⭐</span></td>
+                                <td><span class="star-rating">⭐⭐⭐⭐</span></td>
+                                <td><span class="star-rating">⭐⭐⭐</span></td>
+                                <td><span class="star-rating">⭐⭐</span></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Đa dạng SKU</strong></td>
+                                <td><span class="star-rating">⭐⭐⭐⭐⭐</span></td>
+                                <td><span class="star-rating">⭐⭐⭐⭐</span></td>
+                                <td><span class="star-rating">⭐⭐⭐</span></td>
+                                <td><span class="star-rating">⭐⭐</span></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Brand equity</strong></td>
+                                <td><span class="star-rating">⭐⭐⭐</span></td>
+                                <td><span class="star-rating">⭐⭐⭐⭐</span></td>
+                                <td><span class="star-rating">⭐⭐</span></td>
+                                <td><span class="star-rating">⭐⭐⭐⭐⭐</span></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Innovation/Trendy</strong></td>
+                                <td><span class="star-rating">⭐⭐⭐⭐⭐</span></td>
+                                <td><span class="star-rating">⭐⭐⭐</span></td>
+                                <td><span class="star-rating">⭐⭐</span></td>
+                                <td><span class="star-rating">⭐⭐</span></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Quality perception</strong></td>
+                                <td><span class="star-rating">⭐⭐⭐</span></td>
+                                <td><span class="star-rating">⭐⭐⭐⭐</span></td>
+                                <td><span class="star-rating">⭐⭐⭐</span></td>
+                                <td><span class="star-rating">⭐⭐⭐⭐⭐</span></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Margin efficiency</strong></td>
+                                <td><span class="star-rating">⭐⭐⭐</span></td>
+                                <td><span class="star-rating">⭐⭐⭐⭐</span></td>
+                                <td><span class="star-rating">⭐⭐</span></td>
+                                <td><span class="star-rating">⭐⭐⭐⭐⭐</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <h3>🎯 Top 5 Priority Actions</h3>
+
+                <div class="alert critical">
+                    <h4>1. AN THẢO NHIÊN - HÀNH ĐỘNG KHẨN CẤP 🚨</h4>
+                    <p><strong>Vấn đề:</strong> Margin 18.6% (thấp nhất), giá cao nhưng volume thấp</p>
+                    <p><strong>Action Plan (90 ngày):</strong></p>
+                    <ul class="insight-list">
+                        <li class="tool">Tuần 1-2: Audit cost structure, identify 3-5 core SKUs</li>
+                        <li class="tool">Tuần 3-8: Launch hero product giá 6-7k, heavy sampling</li>
+                        <li class="tool">Tuần 9-12: Build "local/Vietnamese" positioning campaign</li>
+                    </ul>
+                    <p><strong>Expected Results:</strong> Tăng volume 30%, margin lên 20-21%</p>
+                </div>
+
+                <div class="alert opportunity">
+                    <h4>2. KIDO - ACCELERATE TRENDY SEGMENT 🚀</h4>
+                    <p><strong>Cơ hội:</strong> AICE đang dominate Mochi/Boba</p>
+                    <ul class="insight-list">
+                        <li class="rocket">Q2 2026: Launch "Merino Mochi" line (3-4 flavors)</li>
+                        <li class="rocket">Price: 6,500-7,500đ (competitive với AICE)</li>
+                        <li class="rocket">Position: "Healthier Mochi"</li>
+                        <li class="rocket">TikTok/Instagram campaign targeting Gen Z</li>
+                    </ul>
+                    <p><strong>Expected Results:</strong> Capture 15-20% Mochi segment, thêm 10-15M doanh thu</p>
+                </div>
+
+                <div class="alert success">
+                    <h4>3. AICE - MARGIN IMPROVEMENT 📈</h4>
+                    <ul class="insight-list">
+                        <li class="chart">Optimize SKU mix - push higher-margin products</li>
+                        <li class="chart">Launch "AICE Premium" sub-brand (10-15k range)</li>
+                        <li class="chart">Target margin: 23% (cải thiện 1.7 points)</li>
+                    </ul>
+                    <p><strong>Expected Results:</strong> Thêm 2-3M lợi nhuận</p>
+                </div>
+
+                <div class="alert opportunity">
+                    <h4>4. VINAMILK - MARKET SHARE EXPANSION 💎</h4>
+                    <ul class="insight-list">
+                        <li class="gem">Expand: 3-4 SKUs → 10 SKUs trong 6 tháng</li>
+                        <li class="gem">Enter trendy: Mochi, Boba premium version (8-12k)</li>
+                        <li class="gem">Leverage VINAMILK brand equity</li>
+                    </ul>
+                    <p><strong>Expected Results:</strong> Thị phần lên 5-7%, maintain margin 25%+</p>
+                </div>
+
+                <div class="alert success">
+                    <h4>5. CATEGORY-LEVEL - SEASONAL CAMPAIGNS 🎪</h4>
+                    <ul class="insight-list">
+                        <li class="rocket">Summer (Apr-Sep): "Cooling Mochi Festival"</li>
+                        <li class="rocket">Holiday (Dec-Jan): Premium gifting sets</li>
+                    </ul>
+                    <p><strong>Expected Results:</strong> Lift summer sales 25-30%</p>
+                </div>
+            </section>
+
+            <div class="divider"></div>
+
+            <!-- Future Trends -->
+            <section class="section">
+                <h2>🔮 Future Trends & Opportunities</h2>
+
+                <div class="supplier-grid">
+                    <div class="supplier-card">
+                        <h4>🌱 Plant-Based Ice Cream</h4>
+                        <p>Oat milk, coconut milk based</p>
+                        <p><strong>Growth:</strong> 20-30% globally</p>
+                        <p style="color: var(--success); font-weight: bold;">Opportunity: Be first mover in VN</p>
+                    </div>
+
+                    <div class="supplier-card">
+                        <h4>💊 Functional Ice Cream</h4>
+                        <p>Added protein, vitamins</p>
+                        <p><strong>"Guilt-free indulgence"</strong></p>
+                        <p style="color: var(--primary); font-weight: bold;">KIDO Merino well-positioned</p>
+                    </div>
+
+                    <div class="supplier-card">
+                        <h4>👨‍🍳 Artisanal/Craft</h4>
+                        <p>Small batch, premium ingredients</p>
+                        <p><strong>Local/authentic flavors</strong></p>
+                        <p style="color: var(--secondary); font-weight: bold;">Premium segment opportunity</p>
+                    </div>
+
+                    <div class="supplier-card">
+                        <h4>📱 E-commerce & Delivery</h4>
+                        <p>Ice cream delivery apps</p>
+                        <p><strong>Subscription models</strong></p>
+                        <p style="color: var(--accent); font-weight: bold;">D2C opportunities</p>
+                    </div>
+                </div>
+            </section>
+
+            <div class="divider"></div>
+
+            <!-- Summary -->
+            <section class="section">
+                <h2>📋 Summary & Conclusion</h2>
+
+                <div class="alert success">
+                    <h3>✅ Key Takeaways</h3>
+
+                    <h4>Market Structure:</h4>
+                    <ul class="insight-list">
+                        <li class="check">Concentrated market: Top 3 NCC chiếm 99% thị phần</li>
+                        <li class="check">AICE leads với volume strategy, KIDO strong #2</li>
+                        <li class="check">An Thảo Nhiên struggling, VINAMILK niche player</li>
+                    </ul>
+
+                    <h4>Product Insights:</h4>
+                    <ul class="insight-list">
+                        <li class="check">Trendy products (Mochi, Boba) driving growth</li>
+                        <li class="check">Health segment (Yogurt) stable và growing</li>
+                        <li class="check">Premium segment underdeveloped (opportunity)</li>
+                    </ul>
+
+                    <h4>Strategic Imperatives:</h4>
+                    <ul class="insight-list">
+                        <li class="target"><strong>AICE:</strong> Defend leadership, improve margin, enter premium</li>
+                        <li class="target"><strong>KIDO:</strong> Challenge AICE in trendy, grow Celano</li>
+                        <li class="target"><strong>An Thảo Nhiên:</strong> Urgent turnaround - fix pricing & costs</li>
+                        <li class="target"><strong>VINAMILK:</strong> Expand share while maintaining premium</li>
+                    </ul>
+
+                    <h4>Success Factors:</h4>
+                    <ul class="insight-list">
+                        <li class="trophy"><strong>Innovation</strong> - Trendy products win</li>
+                        <li class="trophy"><strong>Pricing</strong> - Right price for right segment</li>
+                        <li class="trophy"><strong>Brand</strong> - Building brand love, not just awareness</li>
+                        <li class="trophy"><strong>Efficiency</strong> - Margin management critical</li>
+                        <li class="trophy"><strong>Distribution</strong> - Coverage drives volume</li>
+                    </ul>
+                </div>
+
+                <div
+                    style="text-align: center; margin-top: 40px; padding: 30px; background: var(--gradient-1); color: white; border-radius: 20px;">
+                    <h3 style="color: white; margin-bottom: 15px;">Market Outlook</h3>
+                    <p style="font-size: 1.2rem; color: white;">
+                        <strong>Positive growth expected</strong> as Vietnam's middle class expands and Western
+                        consumption habits spread.
+                        Ice cream penetration still low vs. developed markets - <strong>significant upside
+                            potential!</strong>
+                    </p>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+        <p><strong>Báo cáo phân tích được tạo ngày:</strong> 04/02/2026</p>
+        <p><strong>Dữ liệu:</strong> Sheet "Ranking Kem2" - Tháng 1-12/2025</p>
+        <p style="margin-top: 20px; color: var(--gray);">📊 Phân Tích Chuyên Sâu Doanh Thu Sản Phẩm Kem</p>
+    </div>
+
+    <script>
+        // Smooth scroll reveal animation
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all sections
+        document.querySelectorAll('.section').forEach(section => {
+            section.classList.add('fade-in');
+            observer.observe(section);
+        });
+
+        // Animate progress bars on scroll
+        const progressObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const fills = entry.target.querySelectorAll('.progress-fill');
+                    fills.forEach(fill => {
+                        const width = fill.style.width;
+                        fill.style.width = '0';
+                        setTimeout(() => {
+                            fill.style.width = width;
+                        }, 100);
+                    });
+                }
+            });
+        }, { threshold: 0.5 });
+
+        document.querySelectorAll('.progress-bar').forEach(bar => {
+            progressObserver.observe(bar.parentElement);
+        });
+
+        // Smooth scrolling for internal links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>
